@@ -1,0 +1,45 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#container {
+    display: flex;
+}
+
+.movie-box {
+    border: 1px solid #ccc;
+    max-width: min-content;
+    padding: 1em;
+    margin: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+}
+
+/*flexbox options
+display: flex; - enable flexbox
+
+flex-direction: row; - postion right to left
+                column; - top to bottom
+
+flex-wrap: wrap; - flexs items across multiple lines
+flex-flow: column wrap; both in same line;
+
+justify-content: flex-start; -options for positioning content
+                center;
+                space-between;
+                space-evenly;
+
+
+#Grid options
+display: grid; - enable grid display
+
+grid-template-columns: 1fr 1fr 1fr; - creates 3 columns : repeat(3, 1fr) - shorter way to write
+
+align-content: start; -grid content positioning
+            center;
+            end;
+            flex-start;
+            flex-end;
+
+column-width: 15em;  - spacing between columns
+            60px; 
+*/
