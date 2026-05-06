@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <div id="image-container"></div>
+    <script defer>
+        const url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=19";
+        async function getPoke(url) {
+            const res = await fetch(url);
+            const data = await res.json();
+            //console.log(data);
+            displayResults(data.results); //this //find the array from the api in console.log
+
+        }
+
+        function displayResults(results) {  //and this hold the same array
+            //console.log(results); use to check passed in data is just the array
+            const pokeBowl = document.querySelector("#container");
+            for (mon of results) {
+                //console.log(mon); //log each pokemon individually  
+
+                //html to display pokemon
+                const pokemonItem = `<div> 
+                        <h2 id="${mon.name}">${mon.name}</h2>
+                        <p>${mon.url} </p>
+                    </div>`;
+                pokeBowl.innerHTML += pokemonItem;
+            }
+
+            let pokeList = document.querySelectorAll("p");
+            pokeList.forEach(element => {
+                //console.log(element); //diagnostic, should see a list of h2
+                element.addEventListener("click", (e) => {
+                    //console.log(e.target.innerHTML);
+                    getIndividualOne(e.target.innerHTML);
+                });
+            });
+        }
+        //GO!
+        getPoke(url);
+
+        //function showSingleMon(e) {
+        //   console.log(e.target);
+        //}
+
+        async function getIndividualOne(url) {
+            const res = await fetch(url);
+            const one = await res.json();
+            //console.log(one);
+
+            displaySprite(one.sprites);
+        }
+
+        function displaySprite(sprites) {
+            console.log(sprites);
+
+            const pokeInfo = document.querySelector("#image-container");
+
+            for (poke of sprites) {
+                console.log(poke);
+                
+                const displayPoke = `<div>        
+                    <img src="${poke.back_default}" alt="pokemon" />
+                    </div>`;
+                    pokeInfo.innerHTML += displayPoke;
+                    } 
+        }
+                
+                //const imgElement = document.createElement('img');
+
+
+
+
+    </script>
+</body>
+
+</html>
