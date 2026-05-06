@@ -1,9 +1,13 @@
-//const genrePick = document.getElementById("genre-select");
+const genrePick = document.getElementById("genre-select");
 
-//let genre = genrePick.value;
+let genre = genrePick.value;
 
-//genrePick.addEventListener("change", console.log(genre));
-let genre = "";
+genrePick.addEventListener("change", (event) => {
+    let genre = genrePick.value;
+    //console.log(genre);
+    const url = "https://api.sampleapis.com/movies/" + genre;
+    getMovies(url);
+});
 
 const url = "https://api.sampleapis.com/movies/western";
 
