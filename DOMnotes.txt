@@ -45,14 +45,10 @@ async function getMovies(url) {
 
         const result = await response.json();
         console.log(result); //log to check api has be received 
-
-        //Process the movie data - call function that displays results
-        
-
-
+           
     } catch (error) {
         console.error(error.message);
     }
 }
 
-getMovies(url) - call method to view results 
+getMovies(url) - call method to view results /*

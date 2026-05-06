@@ -47,5 +47,10 @@ function displayMovies(data) {
 getMovies(url);
 
 /*
+//const genrePick = document.getElementById("genre-select");
+
+//let genre = genrePick.value;
+
+//genrePick.addEventListener("change", console.log(genre));
 
 */
