@@ -10,6 +10,7 @@
 <body>
     <div id="container"></div>
     <div id="image-container"></div>
+
     <script defer>
         const url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=19";
         async function getPoke(url) {
@@ -30,7 +31,7 @@
                 const pokemonItem = `<div> 
                         <h2 id="${mon.name}">${mon.name}</h2>
                         <p>${mon.url} </p>
-                    </div>`;
+                        </div>`;
                 pokeBowl.innerHTML += pokemonItem;
             }
 
@@ -63,22 +64,22 @@
 
             const pokeInfo = document.querySelector("#image-container");
 
-            for (poke of sprites) {
-                console.log(poke);
-                
-                const displayPoke = `<div>        
-                    <img src="${poke.back_default}" alt="pokemon" />
-                    </div>`;
-                    pokeInfo.innerHTML += displayPoke;
-                    } 
+            pokeInfo.innerHTML = `
+            <img src="${sprites.front_default}" alt="pokemon">
+            `;
         }
-                
-                //const imgElement = document.createElement('img');
-
-
-
-
     </script>
+    <style>
+        body {
+            font: 1.2em sans-serif;
+        }
+
+        .image-container {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </body>
 
 </html>
