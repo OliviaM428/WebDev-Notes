@@ -1,3 +1,5 @@
+DOM MANIPULATION
+===========================
 .getElementbyId(" ") - find one element by its id
 .querySelector(" ") = find first element by #ID, .class, div
 
@@ -34,7 +36,35 @@ function displayMovies(data){
     }
 }
 
-ASYNC fetch
+==========================
+DOM FOR ONE OBJECT
+
+-- dog as array in JavaScript or url as api works the same for manipulating information
+
+function displayDog(dog) {
+            const dogContainer = document.querySelector("#single-card");  //no loop needed for single object
+            const dogItem = `
+                    <div class= "dogCard"> 
+                        <h2>${dog.breed}</h2>
+                         <img src="${dog.image}" alt="${dog.breed}">
+                        <h3>ORIGIN</h3>
+                        <p>${dog.origin}</p>
+                        <h3>SIZE</h3> 
+                        <p>${dog.size}</p>
+                        <h3>TEMPERAMENT</h3>
+                        <ul>
+                            <li>${dog.temperament[0]}</li>  --note if I want to grab info from a nested array
+                            <li>${dog.temperament[1]}</li>
+                            <li>${dog.temperament[2]}</li>
+                        </ul>
+                    </div>`;
+
+            dogContainer.innerHTML += dogItem;
+        }
+
+=====================================================
+ASYNC FETCH
+
 const url = "https://api.sampleapis.com/movies/animation
 async function getMovies(url) {
     try {
@@ -55,9 +85,96 @@ async function getMovies(url) {
 
 getMovies(url) - call method to view results 
 
+--------
+const url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=19";
+        async function getPoke(url) {
+            const res = await fetch(url);
+            const data = await res.json();
+            console.log(data); -- check data 
+
+            displayResults(data.results); -- call method 
+
+function displayResults(results) { --pass in correct parameter for api
+
+==========================================================================
+CSS FOR FLEXBOX
+
+display: flex; - enable flexbox
+
+flex-direction: row; - position right to left
+                column; - top to bottom
+
+flex-wrap: wrap; - flexes items across multiple lines
+flex-flow: column wrap; both in same line;
+
+justify-content: flex-start; -options for positioning content
+                center;
+                space-between;
+                space-evenly;
 
 
-CSS For a table layout
+
+==========================
+CARD STYLE WITH FLEXBOX
+
+	.card {       ---Card class
+            width: 300px;
+            border: 1px solid #333;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {    --image element within class
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cards-container {    ---edit for entire container (will position cards side by side---
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+
+====================
+CSS FONT OPTIONS
+
+body{
+            color: #333;  - for all text
+            font;
+        }
+
+h1, h2, h3{  
+            text-transform: uppercase; - makes text uppercase
+        }
+h2{
+            font-size: 1.5em; -makes it 1.5 bigger than the base font size
+        }
+
+
+===============
+CSS GRID
+
+display: grid; - enable grid display
+
+grid-template-columns: 1fr 1fr 1fr; - creates 3 columns : repeat(3, 1fr) - shorter way to write
+
+align-content: start; -grid content positioning
+            center;
+            end;
+            flex-start;
+            flex-end;
+
+column-width: 15em;  - spacing between columns
+            60px; 
+
+
+
+==============
+CSS FOR TABLE LAYOUT
 
 body{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
