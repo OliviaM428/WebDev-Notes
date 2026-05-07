@@ -62,6 +62,15 @@ function displayDog(dog) {
             dogContainer.innerHTML += dogItem;
         }
 
+
+-----
+A for of loop only works on iterables such as
+arrays
+strings
+maps
+sets
+
+a plain object {} is not iterable 
 =====================================================
 ASYNC FETCH
 
