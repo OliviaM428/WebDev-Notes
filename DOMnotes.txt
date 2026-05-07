@@ -393,6 +393,14 @@ radios.forEach(radio => {
 });
 
 
+---BETTER----
+
+radio.addEventListener("change", (event) => {
+    selectedSize = event.target.value;
+    console.log("Saved:", selectedSize);
+});
+
+
 ----------------------------
 ----Get result on click-----
 
